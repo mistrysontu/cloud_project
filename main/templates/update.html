@@ -1,0 +1,75 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<title>Task Master</title>
+{% endblock %}
+
+{% block body %}
+
+<style>
+    body {
+      background-image: linear-gradient(
+          rgba(255, 255, 255, 0.8),
+          rgba(255, 255, 255, 0.8)
+        ),
+        url("{{url_for('static', filename='images/update_bg.jpg')}}");
+      /* background-repeat: no-repeat; */
+      background-size: 100vw 130vh;
+      background-color: transparent;
+      font-weight: bold;
+    }
+  
+    input,
+    select,
+    option, textarea {
+      font-weight: 600;
+      color: rgb(54, 16, 126);
+    }
+  
+    .content {
+        height: 100vh;
+      width: 100wh;
+      padding-top: 50px;
+      margin: 0 auto;
+    }
+    @media (max-width: 581px) {
+      .content {
+        height: 100vh;
+      width: 100wh;
+        /* overflow: hidden; */
+        padding-top: 250px;
+        margin: 0 auto;
+        width: 80%;
+      }
+    }
+    caption { caption-side:top; }
+  </style>
+
+<div class="content ">
+    <h1 style="text-align: center">Update Task</h1>
+    <br/>
+    <div class="form">
+        <form autocomplete="off" action="/update/{{task.id}}" method="POST" style="text-align: center">
+            <textarea rows="4" cols=80vw  name="content" id="content">  
+                {{(task.content)}}
+            </textarea>
+            <br>
+            <!-- <input type="text" name="content" id="content" value="{{task.content}}"> -->
+            <input type="submit" value="Update">
+        </form>
+    </div>
+</div>
+
+<script>
+    const tx = document.getElementsByTagName("textarea");
+for (let i = 0; i < tx.length; i++) {
+  tx[i].setAttribute("style", "height:" + (tx[i].scrollHeight) + "px;overflow-y:hidden;");
+  tx[i].addEventListener("input", OnInput, false);
+}
+
+function OnInput() {
+  this.style.height = "auto";
+  this.style.height = (this.scrollHeight) + "px";
+}
+</script>
+{% endblock %}

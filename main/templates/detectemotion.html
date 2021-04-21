@@ -1,0 +1,14 @@
+{% extends 'base.html' %} {% block title %} Home {% endblock %} 
+
+{% block body %}
+
+<div class="welcome">
+    <form action="/detect_emtion" method="post" enctype="multipart/form-data">
+        <input type=file name="img-up" accept="image/*" oninput="pic.src=window.URL.createObjectURL(this.files[0]); document.getElementById('Button').disabled=false;">
+        <img id="pic" width="500px"/>
+        <input type="submit" id="Button" value="Upload" disabled=true>
+    </form>
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+{% endblock%}

@@ -1,0 +1,188 @@
+{% extends 'base.html' %} {% block title %} Home {% endblock %} {% block body %}
+<div>
+  <!-- ***** Welcome Area Start ***** -->
+  <div class="welcome-area" id="welcome">
+    <!-- ***** Header Text Start ***** -->
+    <div class="header-text">
+      <div class="container">
+        <div class="row">
+          <div
+            class="offset-xl-3 col-xl-6 offset-lg-1 col-lg-8 col-md-12 col-sm-12"
+          >
+            <h1>
+              Multiple micro service <br />
+              deployed in <b>Cloud</b>
+            </h1>
+            <p>
+              This project demonstrate how we can deploy multiple ML/DL model on
+              cloud mainly AWS
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- ***** Header Text End ***** -->
+  </div>
+  <!-- ***** Welcome Area End ***** -->
+
+  <!-- ***** Features Small Start ***** -->
+  <section class="section home-feature">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12">
+          <div class="row">
+            <!-- ***** Features Small Item Start ***** -->
+            <div
+              class="col-lg-4 col-md-6 col-sm-6 col-12"
+              data-scroll-reveal="enter bottom move 50px over 0.6s after 0.2s"
+              onclick="window.location='detectemotion';"
+            >
+              <div class="features-small-item">
+                <div class="icon">
+                  <i><img src="../static/images/emotion.png" alt="" /></i>
+                </div>
+                <h5 class="features-title">Emotion Detection</h5>
+                <p>Upload an image of a human to identify his/her emotion</p>
+              </div>
+            </div>
+            <!-- ***** Features Small Item End ***** -->
+
+            <!-- ***** Features Small Item Start ***** -->
+            <div
+              class="col-lg-4 col-md-6 col-sm-6 col-12"
+              data-scroll-reveal="enter bottom move 50px over 0.6s after 0.4s"
+              onclick="window.location='houseprice';"
+            >
+              <div class="features-small-item">
+                <div class="icon">
+                  <i><img src="../static/images/house.png" alt="" /></i>
+                </div>
+                <h5 class="features-title">House price prediction</h5>
+                <p>
+                  An AI based model to estimate the price of a old or new house.
+                </p>
+              </div>
+            </div>
+            <!-- ***** Features Small Item End ***** -->
+
+            <!-- ***** Features Small Item Start ***** -->
+            <div
+              class="col-lg-4 col-md-6 col-sm-6 col-12"
+              data-scroll-reveal="enter bottom move 50px over 0.6s after 0.6s"
+              onclick="window.location='/todo';"
+            >
+              <div class="features-small-item">
+                <div class="icon">
+                  <i><img src="../static/images/todo.png" alt="" /></i>
+                </div>
+                <h5 class="features-title">Todo list</h5>
+                <p>A simple todo list to keep track all your daily tasks.</p>
+              </div>
+            </div>
+            <!-- ***** Features Small Item End ***** -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- ***** Features Small End ***** -->
+
+  <!-- ***** Features Big Item Start ***** -->
+  <section class="section padding-top-70 padding-bottom-0" id="About">
+    <div class="container">
+      <div class="row">
+        <div
+          class="col-lg-5 col-md-12 col-sm-12 align-self-center"
+          data-scroll-reveal="enter left move 30px over 0.6s after 0.4s"
+        >
+          <img
+            src="../static/images/left-image.png"
+            class="rounded img-fluid d-block mx-auto"
+            alt="App"
+          />
+        </div>
+        <div class="col-lg-1"></div>
+        <div
+          class="col-lg-6 col-md-12 col-sm-12 align-self-center mobile-top-fix"
+        >
+          <div class="left-heading">
+            <h2 class="section-title">Let’s discuss about our project</h2>
+          </div>
+          <div class="left-text">
+            <p>
+              This project is created for partial fulfilment of the Cloud
+              computing(CS60118) term project by Sontu Mistry (20CS60R15). This
+              project mainly focus how we can deploy multiple ML/DL model/micro
+              services in Cloud(AWS) and verious chalanges associated with it.
+              There are three small micro services running on the same EC2
+              instance.
+            </p>
+
+            <ul class="list-group">
+              <li><u>Todo-list</u>: Keep track of your daily goals.</li>
+              <li>
+                <u>House price prediction</u>: This ML model predict house price based
+                on mentioned parameter.
+              </li>
+              <li>
+                <u>Emotion Detection</u>: This module predict human emotion from an
+                image.
+              </li>
+            </ul>
+            <p>
+              This is a web interface to access all these three micro-services
+              howerver the micro-services can easily be accessed from other
+              interface like android and IOS application.
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-lg-12">
+          <div class="hr"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- ***** Features Big Item End ***** -->
+
+  <!-- ***** Features Big Item Start ***** -->
+  <section class="section padding-bottom-100" id="key_learning">
+    <div class="container">
+      <div class="row">
+        <div
+          class="col-lg-6 col-md-12 col-sm-12 align-self-center mobile-bottom-fix"
+        >
+          <div class="left-heading">
+            <h2 class="section-title">Key learning from the project</h2>
+          </div>
+          <div class="left-text">
+            <p>
+              <ul>
+                <li>While working on this project we have build two ML models</li>
+                <li>we deployed our models in two platfoms - (a) Infrastructure as a Service (IaaS) - AWS, (b) Platform as a
+                  Service (PaaS) - Heroku.</li>
+                  <li> We have also learnt how to crate and work with AWS EC2 instance</li>
+                  <li> Learnt some core AWS concept lime I'm role, S3 bucket, AWS Sagemaker, Netwrok Group etc. </li>
+              </ul>
+               
+            </p>
+          </div>
+        </div>
+        <div class="col-lg-1"></div>
+        <div
+          class="col-lg-5 col-md-12 col-sm-12 align-self-center mobile-bottom-fix-big"
+          data-scroll-reveal="enter right move 30px over 0.6s after 0.4s"
+        >
+          <img
+            src="../static/images/right-image.png"
+            class="rounded img-fluid d-block mx-auto"
+            alt="App"
+          />
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- ***** Features Big Item End ***** -->
+</div>
+{% endblock %}

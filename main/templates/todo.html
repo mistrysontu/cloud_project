@@ -1,0 +1,80 @@
+{% extends 'base.html' %} {% block title %} Home {% endblock %} {% block body %}
+
+<style>
+  body {
+    background-image: linear-gradient(
+        rgba(255, 255, 255, 0.7),
+        rgba(255, 255, 255, 0.8)
+      ),
+      url("{{url_for('static', filename='images/todo_bg.jpg')}}");
+    /* background-repeat: no-repeat; */
+    background-size: 100vw 130vh;
+    background-color: transparent;
+    font-weight: bold;
+  }
+
+  input,
+  select,
+  option {
+    font-weight: 600;
+    color: blue;
+  }
+
+  .table1 {
+    padding-top: 50px;
+    margin: 0 auto;
+  }
+  @media (max-width: 581px) {
+    .table1 {
+      /* overflow: hidden; */
+      padding-top: 250px;
+      margin: 0 auto;
+      width: 80%;
+    }
+  }
+  caption { caption-side:top; }
+</style>
+
+
+<div class="container">
+{% if tasks|length < 1 %}
+<h4 style="text-align: center">There are no tasks. Create one below!</h4>
+{% else %}
+
+<table class="table table-striped table-sm table-hover caption-top">
+    <caption id="tableTitle1" style="text-align: center">
+        <h1>Todo List</h1>
+    </caption>
+    
+    <thead>
+        <tr>
+          <th>Task</th>
+          <th>Added</th>
+          <th>Actions</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        {% for task in tasks %}
+        <tr>
+          <td>{{ task.content }}</td>
+          <td>{{ task.date.date() }}</td>
+          <td>
+            <a href="/delete/{{task.id}}">Delete</a>
+            <br />
+            <a href="/update/{{task.id}}">Update</a>
+          </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+  </table>
+  {% endif %}
+
+  <div class="form">
+    <form autocomplete="off" action="/todo" method="POST" style="text-align: center; margin-bottom: 50px;">
+      <input type="text" name="content" id="content" />
+      <input type="submit" value="Add Task" id="submit" />
+    </form>
+  </div>
+</div>
+{% endblock %}

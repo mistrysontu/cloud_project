@@ -1,0 +1,225 @@
+{% extends 'base.html' %} {% block title %} Home {% endblock %} {% block body %}
+
+<style>
+  body {
+    background-image: linear-gradient(
+        rgba(255, 255, 255, 0.85),
+        rgba(255, 255, 255, 0.9)
+      ),
+      url("{{url_for('static', filename='images/house_bg.jpg')}}");
+    background-repeat: no-repeat;
+    background-size: 100vw 130vh;
+    background-color: transparent;
+    font-weight: bold;
+  }
+
+  input,
+  select,
+  option {
+    font-weight: 600;
+    color: blue;
+  }
+
+  .welcome {
+    padding-top: 50px;
+    margin: 0 auto;
+  }
+  @media (max-width: 581px) {
+    .welcome {
+      /* overflow: hidden; */
+      padding-top: 250px;
+      margin: 0 auto;
+      width: 80%;
+    }
+  }
+</style>
+
+<div>
+  <!-- ***** Welcome Area Start ***** -->
+  <div class="welcome" id="welcome" style="background-image: url()">
+    <form
+      name="price_prediction"
+      action="{{url_for('predict_house_price')}}"
+      method="post"
+      class="form form-group container center_div"
+      onsubmit="return validateForm()"
+    >
+      <div class="row">
+        <label for="area" class="col-sm-5">Area Size(sq. ft.): </label>
+        <input
+          type="number"
+          class="col-sm-5"
+          name="area"
+          placeholder="area size"
+          id="area"
+        />
+      </div>
+      <br />
+
+      <div class="row">
+        <label for="MSZoning" class="col-sm-5"> Choose Land Type: </label>
+        <select
+          id="MSZoning"
+          name="MSZoning"
+          class="custom-select mr-sm-2 col-sm-5"
+          style="width: 20vw"
+        >
+          <option value="FV">Floating Village Residential</option>
+          <option value="RH">Residential High Density</option>
+          <option value="RL">Residential Low Density</option>
+          <option value="RM">Residential Medium Density</option>
+          <option value="C (all)">Commercial</option>
+        </select>
+      </div>
+      <br />
+      <div class="row">
+        <label for="MSSubClass" class="col-sm-5">Choose Land Type:</label>
+        <select
+          id="MSSubClass"
+          name="MSSubClass"
+          class="custom-select mr-sm-2 col-sm-5"
+          style="width: 20vw"
+        >
+          <option value="20">1-STORY 1946 & NEWER</option>
+          <option value="30">1-STORY 1945 & OLDER</option>
+          <option value="40">1-STORY W/FINISHED ATTIC</option>
+          <option value="50">1-1/2 STORY - UNFINISHED</option>
+          <option value="60">2-STORY 1946 & NEWER</option>
+          <option value="70">2-STORY 1945 & OLDER</option>
+          <option value="75">2-1/2 STORY ALL AGES</option>
+          <option value="80">SPLIT OR MULTI-LEVEL</option>
+          <option value="85">SPLIT FOYER</option>
+          <option value="90">DUPLEX - ALL STYLES AND AGES</option>
+          <option value="120">1-STORY PUD - 1946 & NEWER</option>
+          <option value="150">1-1/2 STORY PUD - ALL AGES</option>
+          <option value="160">2-STORY PUD - 1946 & NEWER</option>
+          <option value="180">PUD - MULTILEVEL - INCL SPLIT LEV/FOYER</option>
+          <option value="190">2 FAMILY CONVERSION - ALL STYLES AND AGES</option>
+        </select>
+      </div>
+      <br />
+
+      <div class="row">
+        <label class="col-sm-5"> Lot font space : </label>
+        <input
+          name="LotFrontage"
+          type="range"
+          value="34"
+          min="20"
+          max="350"
+          oninput="this.nextElementSibling.value = this.value"
+        />
+        <output>34</output>
+      </div>
+      <br />
+
+      <div class="row">
+        <label class="col-sm-5"> Select Street type: </label>
+        <input
+          type="radio"
+          id="pave"
+          name="street"
+          value="Pave"
+          checked
+          class="p-5"
+        />
+        <label for="pave" class="ml-1 mr-2">Paved</label>
+        <input type="radio" id="Gravel" name="street" value="Gravel" />
+        <label for="Gravel" class="ml-1 mr-2">Gravel</label>
+      </div>
+      <br />
+
+      <div class="row">
+        <label class="col-sm-5"> Select Utility available: </label>
+        <input type="radio" id="AllPub" name="utility" value="AllPub" checked />
+        <label for="AllPub" class="ml-1 mr-2">All</label>
+        <input type="radio" id="NoSeWa" name="utility" value="NoSeWa" />
+        <label for="NoSeWa" class="ml-1 mr-2">Limited</label>
+      </div>
+      <br />
+
+      <div class="row">
+        <label for="LotShape" class="col-sm-5"> Choose Land Shape: </label>
+        <select
+          id="LotShape"
+          name="LotShape"
+          class="custom-select mr-sm-2 col-sm-5"
+          style="width: 20vw"
+        >
+          <option value="Reg">Regular</option>
+          <option value="IR1">Slightly irregular</option>
+          <option value="IR2">Moderately Irregular</option>
+          <option value="IR3">Irregular</option>
+        </select>
+      </div>
+      <br />
+
+      <div class="row">
+        <label for="LandContour" class="col-sm-5">
+          Flatness of the property:
+        </label>
+        <select
+          id="LandContour"
+          name="LandContour"
+          class="custom-select mr-sm-2 col-sm-5"
+          style="width: 20vw"
+        >
+          <option value="Lvl">Near Flat/Level</option>
+          <option value="Bnk">
+            Banked - Quick and significant rise from street grade to building
+          </option>
+          <option value="HLS">
+            Hillside - Significant slope from side to side
+          </option>
+          <option value="Low">Depression</option>
+        </select>
+      </div>
+      <br />
+
+      <div class="row">
+        <label for="SaleCondition" class="col-sm-5"> Condition of sale: </label>
+        <select
+          id="SaleCondition"
+          name="SaleCondition"
+          class="custom-select mr-sm-2 col-sm-5"
+          style="width: 20vw"
+        >
+          <option value="Normal">Normal Sale</option>
+          <option value="Abnorml">
+            Abnormal Sale - trade, foreclosure, short sale
+          </option>
+          <option value="AdjLand">Adjoining Land Purchase</option>
+          <option value="Alloca">
+            Allocation - 2 linked properties with separate deeds
+          </option>
+          <option value="Family">Sale between family members</option>
+          <option value="Partial">
+            Home was not completed when last assessed
+          </option>
+        </select>
+      </div>
+      <br />
+      <div class="row">
+        <span class="col-sm-5"></span>
+        <input
+          type="submit"
+          value="Predict Price"
+          class="btn btn-primary col-sm-5"
+        />
+      </div>
+    </form>
+  </div>
+</div>
+
+<script>
+  function validateForm() {
+    var x = document.forms["price_prediction"]["area"].value;
+    if (x == "") {
+      alert("area must be filled out");
+      return false;
+    }
+  }
+  
+</script>
+
+{% endblock %}

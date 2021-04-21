@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    /> -->
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Raleway:100,300,400,500,700,900"
+      rel="stylesheet"
+    />
+
+    <title>{% block title %} {% endblock %}</title>
+    <!-- Additional CSS Files -->
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{{url_for('static', filename='css/bootstrap.min.css')}}"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{{url_for('static', filename='css/font-awesome.css')}}"
+    />
+    <link
+      rel="stylesheet"
+      href="{{url_for('static', filename='css/templatemo-softy-pinko.css')}}"
+      />
+      
+      <link rel="stylesheet" type="text/css" href="static/css/font-awesome.css" />
+      
+      <link rel="stylesheet" href="static/css/templatemo-softy-pinko.css" />
+      
+      {% block style %} {% endblock %}
+    </head>
+    
+  <body>
+
+    <!-- ***** Header Area Start ***** -->
+    <nav class="navbar navbar-expand-lg navbar-dark" style=" background-color:#936dda;">
+      <a class="navbar-brand" href="/">CCTP</a> 
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+    
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+            <a class="nav-link active" href="/"> Home <span class="sr-only">(current)</span></a>
+          </li>
+          
+          <li class="nav-item active">
+            <a class="nav-link active" href="/#About">About<span class="sr-only">(current)</span></a>
+          </li>
+
+          <li class="nav-item active">
+            <a class="nav-link active" href="/#key_learning">Key Learning <span class="sr-only">(current)</span></a>
+          </li>
+
+          <li class="nav-item dropdown active">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Services
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <a class="dropdown-item" href="/detectemotion">Emotion Detection</a>
+              <a class="dropdown-item" href="/houseprice">House Price Precdiction</a>
+              <a class="dropdown-item" href="/todo">Todo List</a>
+            </div>
+          </li>
+          
+          <li class="nav-item active">
+            <a class="nav-link active" href="/upcoming">Blog Entries<span class="sr-only">(current)</span></a>
+          </li>
+
+          <li class="nav-item active">
+            <a class="nav-link active" href="/upcoming">Contact Us <span class="sr-only">(current)</span></a>
+          </li>
+
+        </ul>
+        <form class="form-inline my-2 my-lg-0">
+          <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+          <button class="btn btn-outline-warning my-2 my-sm-0" type="submit">Search</button>
+        </form>
+      </div>
+    </nav>
+ 
+
+      <!-- ***** Header Area End ***** -->
+    <div >
+      {% block body %} 
+      hi
+      {% endblock %}
+
+    </div>
+
+    <!-- ***** Footer Start ***** -->
+    <footer>
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12">
+              <ul class="social">
+                <li>
+                  <a href="#"><i class="fa fa-facebook"></i></a>
+                </li>
+                <li>
+                  <a href="#"><i class="fa fa-twitter"></i></a>
+                </li>
+                <li>
+                  <a href="#"><i class="fa fa-linkedin"></i></a>
+                </li>
+                <li>
+                  <a href="#"><i class="fa fa-rss"></i></a>
+                </li>
+                <li>
+                  <a href="#"><i class="fa fa-dribbble"></i></a>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-lg-12">
+              <p class="copyright">Copyright &copy;CCTP</p>
+            </div>
+          </div>
+        </div>
+      </footer>
+  
+      <!-- jQuery -->
+      <script src="static/js/jquery-2.1.0.min.js"></script>
+  
+      <!-- Bootstrap -->
+      <script src="static/js/popper.js"></script>
+      <script src="static/js/bootstrap.min.js"></script>
+  
+      <!-- Plugins -->
+      <script src="static/js/scrollreveal.min.js"></script>
+      <script src="static/js/waypoints.min.js"></script>
+      <script src="static/js/jquery.counterup.min.js"></script>
+      <script src="static/js/imgfix.min.js"></script>
+  
+      <!-- Global Init -->
+      <script src="static/js/custom.js"></script>
+  </body>
+</html>

@@ -1,0 +1,56 @@
+{% extends 'base.html' %} {% block title %} Home {% endblock %} {% block body %}
+
+<style>
+  body {
+    background-image: linear-gradient(
+        rgba(255, 255, 255, 0.85),
+        rgba(255, 255, 255, 0.9)
+      ),
+      url("{{url_for('static', filename='images/house_bg.jpg')}}");
+    background-repeat: no-repeat;
+    background-size: 100vw 130vh;
+    background-color: transparent;
+    font-weight: bold;
+  }
+
+  input,
+  select,
+  option {
+    font-weight: 600;
+    color: blue;
+  }
+
+  .welcome {
+    padding-top: 50px;
+    margin: 0 auto;
+  }
+  @media (max-width: 581px) {
+    .welcome {
+      /* overflow: hidden; */
+      padding-top: 250px;
+      margin: 0 auto;
+      width: 80%;
+    }
+  }
+</style>
+
+<div>
+  <!-- ***** Welcome Area Start ***** -->
+  <div class="welcome" id="welcome" style="background-image: url()">
+    <h3> Approximated price of the house is {{Predicted_price}}</h3>
+  
+  </div>
+</div>
+
+<script>
+  function validateForm() {
+    var x = document.forms["price_prediction"]["area"].value;
+    if (x == "") {
+      alert("area must be filled out");
+      return false;
+    }
+  }
+  
+</script>
+
+{% endblock %}
